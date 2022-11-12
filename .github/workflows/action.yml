@@ -1,0 +1,41 @@
+# action.yml
+name: 'cloudflared-service-token-ssh-proxy'
+description: 'Run ssh commands through cloudflared tunnel proxy, inside github actions'
+inputs:
+  CLIENT_ID:  # id of input
+    description: 'Cloudflare access tunnel, service token id'
+    required: true
+    default: 'default'
+  CLIENT_SECRET:  # id of input
+    description: 'Cloudflare access tunnel, service token secret'
+    required: true
+    default: 'default'
+  PUBLIC_KEY:  # id of input
+    description: 'asymmetric ssh keys for the intended client'
+    required: true
+    default: 'default'
+  PRIVATE_KEY:  # id of input
+    description: 'asymmetric ssh keys for the intended client'
+    required: true
+    default: 'default'
+  COMMAND:  # id of input
+    description: 'the command to run on the remote target'
+    required: true
+    default: 'default'
+  HOST:  # id of input
+    description: 'Cloudflare access tunnel, associated application domain'
+    required: true
+    default: '0.0.0.0'
+outputs:
+  output: # id of output
+    description: 'the output of the command'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.HOST }}
+    - ${{ inputs.COMMAND }}
+    - ${{ inputs.CLIENT_ID }}
+    - ${{ inputs.CLIENT_SECRET }}
+    - ${{ inputs.PUBLIC_KEY }}
+    - ${{ inputs.PRIVATE_KEY }}
