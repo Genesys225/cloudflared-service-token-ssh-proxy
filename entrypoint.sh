@@ -18,4 +18,4 @@ EOL"
 
 chmod 0600 /root/.ssh/id_rsa
 cat /root/.ssh/config
-/root/expect-final.sh >> $GITHUB_OUTPUT
+/root/expect-final.sh | tee $GITHUB_OUTPUT
