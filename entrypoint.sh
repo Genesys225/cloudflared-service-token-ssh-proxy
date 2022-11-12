@@ -1,6 +1,6 @@
 #!/bin/bash
 
-envsubst < "./ssh-client.conf" > "/root/.ssh/config" 
+envsubst < "/root/ssh-client.conf" > "/root/.ssh/config" 
 envsubst < "/root/expect.sh" > "/root/expect-final.sh" 
 PUBLIC_KEY="$(echo $5 | base64 --decode)"
 PRIVATE_KEY="$(echo $6 | base64 --decode)"
