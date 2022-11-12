@@ -2,8 +2,8 @@
 
 envsubst < "./ssh-client.conf" > "/root/.ssh/config" 
 envsubst < "/root/expect.sh" > "/root/expect-final.sh" 
-PUBLIC_KEY="$(echo $PUBLIC_KEY | base64 --decode)"
-PRIVATE_KEY="$(echo $PRIVATE_KEY | base64 --decode)"
+PUBLIC_KEY="$(echo $5 | base64 --decode)"
+PRIVATE_KEY="$(echo $6 | base64 --decode)"
 sh -c "cat > /root/.ssh/id_rsa << 'EOL'
 $PRIVATE_KEY
 EOL"
