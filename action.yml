@@ -30,9 +30,9 @@ inputs:
     description: 'remote target username'
     required: true
     default: 'root'
-outputs:
-  output: # id of output
-    description: 'the output of the command'
+# outputs:
+#   output: # id of output
+#     description: 'the output of the command'
 runs:
   using: 'docker'
   image: 'Dockerfile'
