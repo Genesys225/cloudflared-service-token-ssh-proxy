@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export HOST=$1
+export COMMAND=$2
+export CLIENT_ID=$3
+export CLIENT_SECRET=$4
+
 envsubst < "/root/ssh-client.conf" > "/root/.ssh/config" 
 envsubst < "/root/expect.sh" > "/root/expect-final.sh" 
 PUBLIC_KEY="$(echo $5 | base64 --decode)"
