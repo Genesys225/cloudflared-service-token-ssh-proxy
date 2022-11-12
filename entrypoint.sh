@@ -10,7 +10,7 @@ EOL"
 sh -c "cat > /root/.ssh/id_rsa.pub << 'EOL'
 $PUBLIC_KEY
 EOL"
-cat /root/.ssh/id_rsa
+
 chmod 0600 /root/.ssh/id_rsa
 cat /root/.ssh/config
 /root/expect-final.sh >> $GITHUB_OUTPUT
