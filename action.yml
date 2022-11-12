@@ -26,6 +26,10 @@ inputs:
     description: 'Cloudflare access tunnel, associated application domain'
     required: true
     default: '0.0.0.0'
+  USER:  # id of input
+    description: 'remote target username'
+    required: true
+    default: 'root'
 outputs:
   output: # id of output
     description: 'the output of the command'
@@ -34,6 +38,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.HOST }}
+    - ${{ inputs.USER }}
     - ${{ inputs.COMMAND }}
     - ${{ inputs.CLIENT_ID }}
     - ${{ inputs.CLIENT_SECRET }}
