@@ -18,7 +18,5 @@ RUN chmod a+x /root/entrypoint.sh
 RUN chmod a+x /root/expect.sh
 RUN chmod a+x /root/expect-final.sh
 RUN cat /root/entrypoint.sh
-RUN pwd
 
-
-CMD ["/root/entrypoint.sh"]
+ENTRYPOINT ["/root/entrypoint.sh"]
