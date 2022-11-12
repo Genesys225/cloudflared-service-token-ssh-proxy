@@ -9,7 +9,7 @@ USER root
 RUN mkdir /root/.ssh
 RUN touch /root/.ssh/config
 RUN apt-get update && apt-get install -y cloudflared
-COPY ./ssh-client.conf ./ssh-client.conf
+COPY ./ssh-client.conf /root/ssh-client.conf
 RUN cat /root/.ssh/config
 COPY ./entrypoint.sh /root/entrypoint.sh
 COPY ./expect.sh /root/expect.sh
