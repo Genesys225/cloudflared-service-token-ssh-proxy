@@ -19,5 +19,4 @@ EOL"
 
 chmod 0600 /root/.ssh/id_rsa
 cat /root/.ssh/config
-output=$(/root/expect-final.sh)
-echo "output=$output" >> $GITHUB_OUTPUT
+/root/expect-final.sh >> $GITHUB_OUTPUT
