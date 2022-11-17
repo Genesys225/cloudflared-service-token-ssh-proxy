@@ -10,6 +10,6 @@ foreach line $lines {
   send "$line\r"
   expect "$ "
 }
-# send "${COMMANDS}\r"
+# send "${COMMAND}\r"
 # expect "$ "
 send "exit\r"
