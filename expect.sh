@@ -2,10 +2,11 @@
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
 expect "$ "
-while IFS= read -r line; do
-    send "$line\r"
-    expect "$ "
-done <<< "${COMMAND}"
+foreach line {${COMMAND}}
+do
+  send "${line}\r"
+  expect "$ "
+done
 # send "${COMMAND}\r"
 # expect "$ "
 send "exit\r"
