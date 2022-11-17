@@ -2,7 +2,7 @@
 
 export HOST=$1
 export USER=$2
-export COMMANDS="$3"
+echo $3 > ./commands.txt
 export CLIENT_ID=$4
 export CLIENT_SECRET=$5
 
@@ -19,4 +19,4 @@ EOL"
 
 chmod 0600 /root/.ssh/id_rsa
 cat /root/.ssh/config
-/root/expect-final.sh $COMMANDS
+/root/expect-final.sh
