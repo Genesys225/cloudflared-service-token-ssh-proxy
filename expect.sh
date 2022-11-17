@@ -1,4 +1,4 @@
-#!/usr/bin/expect -f+
+#!/usr/bin/expect -f
 
 set lines [split $COMMANDS "\n"]
 
