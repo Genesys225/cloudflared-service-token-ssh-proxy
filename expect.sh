@@ -1,6 +1,8 @@
 #!/usr/bin/expect -f
 
-set commands [lindex $argv 0]
+set commands [open ./commands.txt r]
+set content [read $commands]
+close $commands
 set lines [split $commands "\n"]
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
@@ -8,7 +10,7 @@ spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
 expect "$ "
 send "echo \"$lines\"\r"
 expect "$ "
-send "echo \"$commands]"\r"
+send "echo \"$commands\"\r"
 expect "$ "
 foreach line $lines {
   send "$line\r"
