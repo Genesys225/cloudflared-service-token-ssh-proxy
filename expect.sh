@@ -1,19 +1,15 @@
 #!/usr/bin/expect -f
 
-set command [open ./commands.txt r]
-set content [read ${DOLLAR}command]
-close ${DOLLAR}command
-set lines [split ${DOLLAR}content "\n"]
+set fid [open ./commands.txt r]
+set fileContent [read ${DOLLAR}fid]
+close ${DOLLAR}fid
+set commands [split ${DOLLAR}fileContent "\n"]
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
 
 expect "$ "
-send "echo \"${DOLLAR}lines\"\r"
-expect "$ "
-send "echo \"${DOLLAR}command\"\r"
-expect "$ "
-foreach line ${DOLLAR}lines {
-  send "${DOLLAR}line\r"
+foreach command ${DOLLAR}commands {
+  send "${DOLLAR}command\r"
   expect "$ "
 }
 
