@@ -1,11 +1,14 @@
-#!/usr/bin/expect -f
+#!/usr/bin/expect -f+
+
+set lines [split $COMMANDS "\n"]
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
+
 expect "$ "
-foreach line $COMMAND {
-  send "${line}\r"
+foreach line $lines {
+  send "$line\r"
   expect "$ "
 }
-# send "${COMMAND}\r"
+# send "${COMMANDS}\r"
 # expect "$ "
 send "exit\r"
