@@ -2,7 +2,7 @@
 
 export HOST=$1
 export USER=$2
-export COMMAND=$3
+echo $3 > ./commands.txt
 export CLIENT_ID=$4
 export CLIENT_SECRET=$5
 
