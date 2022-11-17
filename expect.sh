@@ -1,6 +1,7 @@
 #!/usr/bin/expect -f
 
-set lines [split $COMMANDS "\n"]
+set commands [lindex $argv 0]
+set lines [split $commands "\n"]
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
 
