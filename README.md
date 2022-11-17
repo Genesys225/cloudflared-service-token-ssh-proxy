@@ -1,5 +1,6 @@
 # cloudflared-service-token-ssh-proxy
 run ssh command through cloudflared tunnel proxy
+```yml
 example:
   - name: cloudflared-service-token-ssh-proxy
       uses: Genesys225/cloudflared-service-token-ssh-proxy@V1
@@ -13,3 +14,4 @@ example:
         COMMAND: |
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker-compose up -d {{ env.IMAGE_NAME }}:latest
+```
