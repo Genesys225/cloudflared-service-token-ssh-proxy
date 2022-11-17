@@ -2,7 +2,7 @@
 
 export HOST=$1
 export USER=$2
-export COMMANDS=$3
+export COMMANDS="$3"
 export CLIENT_ID=$4
 export CLIENT_SECRET=$5
 
