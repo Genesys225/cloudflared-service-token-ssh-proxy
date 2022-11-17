@@ -19,4 +19,4 @@ EOL"
 
 chmod 0600 /root/.ssh/id_rsa
 cat /root/.ssh/config
-/root/expect.sh $COMMANDS
+/root/expect-final.sh $COMMANDS
