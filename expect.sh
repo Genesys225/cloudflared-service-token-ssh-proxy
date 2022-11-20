@@ -3,7 +3,10 @@
 set fid [open ./commands.txt r]
 set fileContent [read ${DOLLAR}fid]
 close ${DOLLAR}fid
+
 set commands [split ${DOLLAR}fileContent "\n"]
+
+set timeout -1
 
 spawn ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST
 
