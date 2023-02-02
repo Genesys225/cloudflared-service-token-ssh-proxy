@@ -17,7 +17,7 @@ EOL"
 sh -c "cat > /root/.ssh/id_rsa.pub << 'EOL'
 $PUBLIC_KEY
 EOL"
-cat /root/.ssh/id_rsa.pub
+
 chmod 0600 /root/.ssh/id_rsa
 echo "***  connecting to ssh targrt: ***\n"
 cat /root/.ssh/config
