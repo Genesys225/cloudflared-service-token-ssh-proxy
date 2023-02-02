@@ -1,4 +1,11 @@
 # cloudflared-service-token-ssh-proxy
+
+to correctly encode your keys, use:
+```bash
+echo -n "$(cat ~/.ssh/id_rsa.pub)" | base64 -w 0
+```
+then copy the results to your secret/var.
+
 run ssh command through cloudflared tunnel proxy
 ```yml
 example:
