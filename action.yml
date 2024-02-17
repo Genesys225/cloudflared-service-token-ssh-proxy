@@ -49,3 +49,4 @@ runs:
     - ${{ inputs.PUBLIC_KEY }}
     - ${{ inputs.PRIVATE_KEY }}
     - ${{ inputs.KEY_TYPE }}
+    - ${{ inputs.PROMPT }}
