@@ -30,13 +30,19 @@ inputs:
     description: 'remote target username'
     required: true
     default: 'root'
+  PORT:  # id of input
+    description: 'ssh port'
+    required: false
+    type: number
+    default: 22
+  REMOTE_SHELL:  # id of input
+    description: 'shell to run the ssh command in. You can pass in arguments with `sh -s arg1 arg2`'
+    required: false
+    default: 'sh'
   KEY_TYPE:  # id of input
     description: 'SSH key type, like id_rsa or id_ed25519'
     required: false
     default: 'id_rsa'
-# outputs:
-#   output: # id of output
-#     description: 'the output of the command'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -49,4 +55,5 @@ runs:
     - ${{ inputs.PUBLIC_KEY }}
     - ${{ inputs.PRIVATE_KEY }}
     - ${{ inputs.KEY_TYPE }}
-    - ${{ inputs.PROMPT }}
+    - ${{ inputs.PORT }}
+    - ${{ inputs.REMOTE_SHELL }}

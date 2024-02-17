@@ -6,7 +6,8 @@ echo "$3" > ./commands.txt
 export CLIENT_ID=$4
 export CLIENT_SECRET=$5
 export KEY_TYPE=$8
-export PROMPT=$9
+export PORT=$9
+export REMOTE_SHELL=${10}
 
 envsubst < "/root/ssh-client.conf" > "/root/.ssh/config" 
 PUBLIC_KEY="$(echo $6 | base64 --decode)"
@@ -25,4 +26,4 @@ cat /root/.ssh/config
 echo "***  running commands: ***\n"
 cat ./commands.txt
 
-ssh -v -o "StrictHostKeyChecking no" -p 22 $USER@$HOST 'sh -s' < commands.txt
+ssh -v -o "StrictHostKeyChecking no" -p $PORT $USER@$HOST "$REMOTE_SHELL" < commands.txt

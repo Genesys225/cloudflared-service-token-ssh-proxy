@@ -13,12 +13,14 @@ example:
       uses: Genesys225/cloudflared-service-token-ssh-proxy@V1
       with:
         HOST: ipv4/ipv6 | host address
-        USER: usename
+        USER: username
+        PORT: 22
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         KEY_TYPE: id_rsa
+        REMOTE_SHELL: 'sh'
         COMMAND: |
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker-compose up -d {{ env.IMAGE_NAME }}:latest
