@@ -18,6 +18,7 @@ example:
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        KEY_TYPE: id_rsa
         COMMAND: |
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker-compose up -d {{ env.IMAGE_NAME }}:latest

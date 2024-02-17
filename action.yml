@@ -30,6 +30,10 @@ inputs:
     description: 'remote target username'
     required: true
     default: 'root'
+  KEY_TYPE:  # id of input
+    description: 'SSH key type, like id_rsa or id_ed25519'
+    required: false
+    default: 'id_rsa'
 # outputs:
 #   output: # id of output
 #     description: 'the output of the command'
@@ -44,3 +48,4 @@ runs:
     - ${{ inputs.CLIENT_SECRET }}
     - ${{ inputs.PUBLIC_KEY }}
     - ${{ inputs.PRIVATE_KEY }}
+    - ${{ inputs.KEY_TYPE }}
